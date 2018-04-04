@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const MedicineSchema = new Schema({
-    // familyMember: {
-    //     type: _id,
-    //     required: true
-    // },
+    _familyMemberId: {
+        type: Schema.Types.ObjectId,
+        ref: "FamilyMember",
+        required: true
+    },
     name: {
         type: String,
         trim: true,
@@ -29,12 +30,13 @@ const MedicineSchema = new Schema({
         trim: true,
         required: true
     },
-    // pharmacy: {
-    //     type: String,
-    //     required: true
-    // },
+    _pharmacyId: {
+        type: Schema.Types.ObjectId,
+        ref: "Pharmacy"
+    },
     lastPickup: {
         type: Date,
+        default: Date.now,
         required: true
     },
     refill: {

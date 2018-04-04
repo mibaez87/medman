@@ -3,10 +3,10 @@ module.exports = function (passport) {
 	const router = require('express').Router();
 
 
-	router.use("/auth",require("./authRoutes.js")(passport));
-	router.use("/api",require("./apiRoutes.js")(passport));
+	router.use("/auth", require("./authRoutes.js")(passport));
+	router.use("/api", require("./apiRoutes.js")(passport));
 	//add more routes here
-	
+
 
 	// If no API routes are hit, send the React app
 	router.use(function(req, res) {
@@ -14,4 +14,5 @@ module.exports = function (passport) {
 	});
 
 	return router;
+	
 };
