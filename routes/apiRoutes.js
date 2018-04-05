@@ -5,7 +5,10 @@ module.exports = function (passport) {
 
 	//add any API routes here
 	router.post("/", familyMemberController.create);
+	router.get("/", familyMemberController.findAll);
+	router.get("/:id", familyMemberController.findOne);
 	router.delete("/:id", familyMemberController.delete);
+	router.put("/:id", familyMemberController.update);
 
 	return router;
 };

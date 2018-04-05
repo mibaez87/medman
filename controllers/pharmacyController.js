@@ -9,6 +9,23 @@ module.exports = {
                 res.json(dbPharmacy);
             });
     },
+    // Find all pharmacies, sort them by name, send them back to the user
+    findAll: function (req, res) {
+        db.Pharmacy
+            .find(req.query)
+            .sort({ name: -1 })
+            .then(function (dbPharmacy) {
+                res.json(dbPharmacy);
+            });
+    },
+    // Find one pharmacy
+    findOne: function (req, res) {
+        db.Pharmacy
+            .findOne(req.query)
+            .then(function (dbPharmacy) {
+                res.json(dbPharmacy);
+            });
+    },    
     // Delete a pharmacy with a given id
     delete: function (req, res) {
         db.Pharmacy
@@ -23,13 +40,5 @@ module.exports = {
             res.json(dbPharmacy);
         });
     },
-    // Find all pharmacies, sort them by next refill date, send them back to the user
-    findAll: function (req, res) {
-        db.Pharmacy
-            .find(req.query)
-            .sort({ date: -1 })
-            .then(function (dbPharmacy) {
-                res.json(dbPharmacy);
-            });
-    }
+    
 };

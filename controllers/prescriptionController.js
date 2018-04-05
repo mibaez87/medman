@@ -9,6 +9,15 @@ module.exports = {
                 res.json(dbPrescription);
             });
     },
+    // Find all prescriptions, sort them by next refill date, send them back to the user
+    findAll: function (req, res) {
+        db.Prescription
+            .find(req.query)
+            .sort({ nextRefill: -1 })
+            .then(function (dbPrescription) {
+                res.json(dbPrescription);
+            });
+    },
     // Delete a prescription with a given id
     delete: function (req, res) {
         db.Prescription
@@ -23,13 +32,5 @@ module.exports = {
             res.json(dbPrescription);
         });
     },
-    // Find all prescriptions, sort them by next refill date, send them back to the user
-    findAll: function (req, res) {
-        db.Prescription
-            .find(req.query)
-            .sort({ nextRefill: -1 })
-            .then(function (dbPrescription) {
-                res.json(dbPrescription);
-            });
-    }
+
 };

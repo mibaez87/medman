@@ -9,6 +9,23 @@ module.exports = {
                 res.json(dbFamilyMember);
             });
     },
+    // Find all family members, sort them by last name, send them back to the user
+    findAll: function (req, res) {
+        db.FamilyMember
+            .find(req.query)
+            .sort({ lastName: -1 })
+            .then(function (dbFamilyMember) {
+                res.json(dbFamilyMember);
+            });
+    },
+    // Find one family member
+    findOne: function (req, res) {
+        db.FamilyMember
+            .findOne(req.query)
+            .then(function (dbFamilyMember) {
+                res.json(dbFamilyMember);
+            });
+    },
     // Delete a family member with a given id
     delete: function (req, res) {
         db.FamilyMember
@@ -22,14 +39,5 @@ module.exports = {
         db.FamilyMember.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(function (dbFamilyMember) {
             res.json(dbFamilyMember);
         });
-    },
-    // Find all family members, sort them by next refill date, send them back to the user
-    findAll: function (req, res) {
-        db.FamilyMember
-            .find(req.query)
-            .sort({ date: -1 })
-            .then(function (dbFamilyMember) {
-                res.json(dbFamilyMember);
-            });
     }
 };
