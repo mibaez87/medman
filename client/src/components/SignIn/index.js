@@ -1,25 +1,39 @@
 import React from 'react';
-import "./style.css";
-import {Link} from 'react-router-dom';
+// import "./style.css";
+import { Link } from 'react-router-dom';
+import { Card, CardTitle } from 'material-ui/Card';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
-const SignIn = (props)=> {
+const style = {
+	margin: 12,
+};
 
+const SignIn = (props) => {
 	return (
-		<div>
-			<h1>SIGN IN</h1>
-			<Link to = "/signup" >Go to sign up</Link>
+		<div align="center">
+		<Card>
+			<CardTitle title="Welcome to Medman" />
+			<Link to="/signup" >First time? Go to Sign Up</Link>
+			<br />
+			<br />
 			<form>
-				<label>Email</label><br/>
-				<input value = {props.username} onChange = {props.handleChange} name='username' type='email' placeholder = 'example@email.com'/>
+				<label>Email</label>
+				<div>
+					<TextField type="email" name="username" value={props.username} className="user" onChange={props.handleChange} />
+				</div>
 				<br />
-				<label>Password</label><br/>
-				<input name='password' type='password' value = {props.password} onChange = {props.handleChange} />
-				<br />
-				<button type = 'submit' name = "/auth/signin" onClick = {props.handleSubmit}>Sign In</button>
+				<label>Password</label>
+				<div>
+					<TextField type="password" name="password" value={props.password} className="password" onChange={props.handleChange} />
+				</div>
+				<div>
+					<RaisedButton type="submit" label="Sign In" name="/auth/signin" onClick={props.handleSubmit} primary={true} style={style} />
+				</div>
 			</form>
+		</Card>
 		</div>
 	);
-
 }
 
 export default SignIn;
