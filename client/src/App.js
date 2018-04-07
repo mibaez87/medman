@@ -7,8 +7,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-import FamilyHome from "./components/FamilyHome/FamilyHome.js";
-// import ToolBar from "./components/ToolBar/ToolBar.js"
+import NewFamily from "./components/NewFamily/NewFamily.js"
+
 
 class App extends Component {
   state = {
@@ -35,6 +35,7 @@ class App extends Component {
   }
 
   handleChange = (event) => {
+    console.log(event);
     const { name, value } = event.target;
     // Set the state for the appropriate input field
     this.setState({
@@ -100,6 +101,7 @@ class App extends Component {
                 />
               }
             }} />
+            {/* <Route exact path="/saved" render={()=> <SavedArticles />} */}
             <Route exact path="/signup" render={() => {
               if (loggedIn) {
                 return <Redirect to="/home" />
@@ -114,10 +116,15 @@ class App extends Component {
             }} />
             <Route exact path="/family" render={() => {
               if (loggedIn) {
-                return <Redirect to="/family" />
+                // return <Redirect to="/family" />
               } else {
-                return <div><FamilyHome /></div>
-                // <ToolBar />
+                return <Home />
+              }
+            }} />
+            <Route exact path="/addfamily" render={() => {
+              if (loggedIn) {
+              } else {
+                return <NewFamily />
               }
             }} />
             <Route exact path="/home" render={() => {

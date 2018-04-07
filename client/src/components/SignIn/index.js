@@ -23,7 +23,7 @@ const SignIn = (props) => {
 					<TextField floatingLabelText="Password" type="password" name="password" value={props.password} className="password" onChange={props.handleChange} />
 				</div>
 				<div>
-					<RaisedButton type="submit" label="Sign In" name="/auth/signin" onClick={props.handleSubmit} primary={true} style={style} />
+					<RaisedButton type="submit" label="Login" name="/auth/signin" onClick={props.handleSubmit} primary={true} style={style} />
 				</div>
 			</form>
 		</Card>

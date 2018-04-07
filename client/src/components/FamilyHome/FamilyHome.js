@@ -17,40 +17,7 @@ const styles = {
     },
 };
 
-const familyMembers = [
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'John',
-        nextRefill: Date.now,
-    },
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'Jane',
-        nextRefill: Date.now,
-    },
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'Randy',
-        nextRefill: Date.now,
-    },
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'Rebecca',
-        nextRefill: Date.now,
-    },
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'Chris',
-        nextRefill: Date.now,
-    },
-    {
-        img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-        name: 'Carmen',
-        nextRefill: Date.now,
-    }
-];
-
-const FamilyHome = () => {
+const FamilyHome = (props) => {
     return (
         <div>
             <h2 align="center">Your Household Members {<IconButton><AddMember /></IconButton>}</h2>
@@ -59,14 +26,14 @@ const FamilyHome = () => {
                     cellHeight={180}
                     style={styles.gridList}
                 >
-                    {familyMembers.map((familyMember) => (
+                    {props.familyMembers.map((familyMember,index) => (
                         <GridTile
-                            key={familyMember.img}
-                            title={familyMember.name}
+                            key={familyMember._id}
+                            title={familyMember.firstName}
                             subtitle={<span>Next Refill: <b>{familyMember.nextRefill}</b></span>}
                             actionIcon={<IconButton><ModeEdit color="white" /></IconButton>}
                         >
-                            <img src={familyMember.img} alt={familyMember.name} />
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt={familyMember.firstName} />
                         </GridTile>
                     ))}
                 </GridList>
