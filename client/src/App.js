@@ -8,7 +8,6 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import NewFamily from "./components/NewFamily/NewFamily.js"
-import ToolBar from "./components/ToolBar/ToolBar.js"
 
 
 class App extends Component {
@@ -45,8 +44,9 @@ class App extends Component {
   }
 
   handleSubmit = (event) => {
+    // console.log(event.target);
     event.preventDefault();
-
+    
     //call a sign In function
     const newUser = {
       username: this.state.username,
@@ -97,7 +97,7 @@ class App extends Component {
                 return <SignIn
                   handleChange={this.handleChange}
                   handleSubmit={this.handleSubmit}
-                  email={this.state.email}
+                  username={this.state.username}
                   password={this.state.password}
                 />
               }
@@ -110,7 +110,7 @@ class App extends Component {
                 return <SignUp
                   handleChange={this.handleChange}
                   handleSubmit={this.handleSubmit}
-                  email={this.state.email}
+                  username={this.state.username}
                   password={this.state.password}
                 />
               }
@@ -124,8 +124,9 @@ class App extends Component {
             }} />
             <Route exact path="/addfamily" render={() => {
               if (loggedIn) {
-              } else {
                 return <NewFamily />
+              } else {
+                return <Redirect to="/" />
               }
             }} />
             <Route exact path="/home" render={() => {

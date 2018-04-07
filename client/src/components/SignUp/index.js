@@ -15,7 +15,7 @@ const SignUp = (props)=> {
 		<Card>
 			<CardTitle title="Welcome to Medman" />
 			<Link to = "/" >Already signed up? Login here</Link>
-			<form>
+			<form name="/auth/signup" onSubmit={props.handleSubmit}>
 				<div>
 					<TextField floatingLabelText="Email" floatingLabelFixed={true} type="email" name="username" value={props.username} className="user" onChange={props.handleChange} />
 				</div>
@@ -23,7 +23,7 @@ const SignUp = (props)=> {
 					<TextField floatingLabelText="Password" floatingLabelFixed={true} type="password" name="password" value={props.password} className="password" onChange={props.handleChange} />
 				</div>
 				<div>
-					<RaisedButton type="submit" label="Sign Up" name="/auth/signup" onClick={props.handleSubmit} primary={true} style={style} />
+					<RaisedButton type="submit" label="Sign Up" primary={true} style={style} />
 				</div>
 			</form>
 		</Card>

@@ -4,7 +4,6 @@ import IconButton from 'material-ui/IconButton';
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
 import AddMember from 'material-ui/svg-icons/social/person-add';
 import { Link } from 'react-router-dom';
-import ToolBar from '../ToolBar/ToolBar.js'
 
 const styles = {
     root: {
