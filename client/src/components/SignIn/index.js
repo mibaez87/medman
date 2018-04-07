@@ -17,10 +17,10 @@ const SignIn = (props) => {
 			<Link to="/signup" >First time? Go to Sign Up</Link>
 			<form>
 				<div>
-					<TextField floatingLabelText="Email" type="email" name="username" value={props.username} className="user" onChange={props.handleChange} />
+					<TextField floatingLabelText="Email" floatingLabelFixed={true} type="email" name="username" value={props.username} className="user" onChange={props.handleChange} />
 				</div>
 				<div>
-					<TextField floatingLabelText="Password" type="password" name="password" value={props.password} className="password" onChange={props.handleChange} />
+					<TextField floatingLabelText="Password" floatingLabelFixed={true} type="password" name="password" value={props.password} className="password" onChange={props.handleChange} />
 				</div>
 				<div>
 					<RaisedButton type="submit" label="Login" name="/auth/signin" onClick={props.handleSubmit} primary={true} style={style} />

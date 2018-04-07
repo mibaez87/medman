@@ -8,6 +8,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import NewFamily from "./components/NewFamily/NewFamily.js"
+import ToolBar from "./components/ToolBar/ToolBar.js"
 
 
 class App extends Component {
@@ -118,7 +119,7 @@ class App extends Component {
               if (loggedIn) {
                 // return <Redirect to="/family" />
               } else {
-                return <Home />
+                return <Home handleLogout={this.handleLogout}/>
               }
             }} />
             <Route exact path="/addfamily" render={() => {

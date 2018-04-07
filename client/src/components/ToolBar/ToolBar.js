@@ -38,7 +38,7 @@ class ToolBar extends Component {
         <ToolbarGroup>
           <ToolbarTitle text="MedMan" />
           <ToolbarSeparator />
-          <RaisedButton label="Logout" primary={true} />
+          <RaisedButton label="Logout" primary={true} onClick={this.props.handleLogout}/>
         </ToolbarGroup>
       </Toolbar>
     );

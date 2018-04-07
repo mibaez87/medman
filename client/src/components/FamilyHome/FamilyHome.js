@@ -3,6 +3,8 @@ import { GridList, GridTile } from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import ModeEdit from 'material-ui/svg-icons/editor/mode-edit';
 import AddMember from 'material-ui/svg-icons/social/person-add';
+import { Link } from 'react-router-dom';
+import ToolBar from '../ToolBar/ToolBar.js'
 
 const styles = {
     root: {
@@ -20,7 +22,7 @@ const styles = {
 const FamilyHome = (props) => {
     return (
         <div>
-            <h2 align="center">Your Household Members {<IconButton><AddMember /></IconButton>}</h2>
+            <h2 align="center">Your Household Members {<IconButton><Link to ="/addfamily"><AddMember /></Link></IconButton>}</h2>
             <div style={styles.root}>
                 <GridList
                     cellHeight={180}

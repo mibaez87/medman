@@ -1,8 +1,8 @@
 import React from 'react';
 import "./style.css";
 import FamilyHome from "../FamilyHome/FamilyHome.js";
-import ToolBar from "../ToolBar/ToolBar.js"
 import axios from "axios";
+import ToolBar from "../ToolBar/ToolBar.js"
 
 class Home extends React.Component {
 	state = {
