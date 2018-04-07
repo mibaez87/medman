@@ -15,17 +15,12 @@ const SignUp = (props)=> {
 		<Card>
 			<CardTitle title="Welcome to Medman" />
 			<Link to = "/" >Already signed up? Go to Sign In</Link>
-			<br />
-			<br />
 			<form>
-			<label>Email</label>
 				<div>
-					<TextField type="email" name="username" value={props.username} className="user" hintText="example@email.com" onChange={props.handleChange} />
+					<TextField floatingLabelText="Email" name="username" value={props.username} className="user" hintText="example@email.com" onChange={props.handleChange} />
 				</div>
-				<br />
-				<label>Password</label>
 				<div>
-					<TextField type="password" name="password" value={props.password} className="password" hintText="********" onChange={props.handleChange} />
+					<TextField floatingLabelText="Password" type="password" name="password" value={props.password} className="password" hintText="********" onChange={props.handleChange} />
 				</div>
 				<div>
 					<RaisedButton type="submit" label="Sign Up" name="/auth/signup" onClick={props.handleSubmit} primary={true} style={style} />
