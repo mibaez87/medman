@@ -5,12 +5,12 @@ module.exports = function (passport) {
 
 	//add any API routes here
 	router
-		.route("/")
+		.route("/family")
 		.get(familyMemberController.findAll)
 		.post(familyMemberController.create);
 	
 	router
-		.route("/:id")
+		.route("/family/:id")
 		.get(familyMemberController.findOne)
 		.put(familyMemberController.update)
 		.delete(familyMemberController.delete);

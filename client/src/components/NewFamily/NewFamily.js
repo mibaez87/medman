@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 import ToolBar from '../ToolBar/ToolBar.js'
+import API from "../../utils/API.js"
 
 const style = {
     margin: 12,
@@ -13,37 +14,31 @@ const style = {
 
 class NewFamily extends Component {
     state = {
+        familyMembers: [],
         firstName: "",
         lastName: "",
         dob: {},
         address: ""
     }
 
-    handleSubmit = (event) => {
+    showFamily = () => {
+        API.getHousehold()
+        .then(res =>
+          this.setState({ familyMembers: res.data, firstName: "", lastName: "", dob: {}, address: "" })
+        )
+        .catch(err => console.log(err));
+    }
+
+    handleSubmit = event => {
         event.preventDefault();
-        const newMember = {
+        API.saveNewFamily({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             dob: this.state.dob,
             address: this.state.address
-        };
-        this.setState({
-            firstName: "",
-            lastName: "",
-            dob: {},
-            address: ""
-        });
-        const { name } = event.target;
-        axios.post(name, newMember).then((data) => {
-            const { firstName, lastName, dob, address } = data.data;
-            const formattedBirthDate = moment(dob).format('YYYYMMDD');
-            this.setState({
-                firstName: firstName,
-                lastName: lastName,
-                dob: formattedBirthDate,
-                address: address
-            })
-        });
+        })
+            .then(res => this.showFamily())
+            .catch(err => console.log(err));
     }
 
     handleChange = (event) => {
