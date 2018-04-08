@@ -22,7 +22,7 @@ class NewFamily extends Component {
         event.preventDefault();
         const {firstName, lastName, dob, address} = this.state;
         const formattedBirthDate = moment(dob).format('YYYYMMDD');
-        this.props.search(firstName, lastName, formattedBirthDate, address);
+        this.props.add(firstName, lastName, formattedBirthDate, address);
     }
 
     handleChange = (event) => {
@@ -42,13 +42,13 @@ class NewFamily extends Component {
                 <CardTitle title="Add a New Family Member" />
                 <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
                     <div>
-                        <TextField name="firstName" value={this.state.topic} floatingLabelText="First Name" floatingLabelFixed={true} onChange={this.handleChange} />
+                        <TextField name="firstName" value={this.state.firstName} floatingLabelText="First Name" floatingLabelFixed={true} onChange={this.handleChange} />
                         <br />
-                        <TextField name="lastName" value={this.state.topic} floatingLabelText="Last Name" floatingLabelFixed={true} onChange={this.handleChange} />
+                        <TextField name="lastName" value={this.state.lastName} floatingLabelText="Last Name" floatingLabelFixed={true} onChange={this.handleChange} />
                         <br />
-                        <DatePicker name="dob" value={this.state.startDate} floatingLabelText="Date of Birth" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleStartDateChange} />
+                        <DatePicker name="dob" value={this.state.dob} floatingLabelText="Date of Birth" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleBirthDateChange} />
                         <br />
-                    <TextField name="address" value={this.state.topic} floatingLabelText="Address" floatingLabelFixed={true} onChange={this.handleChange} />
+                    <TextField name="address" value={this.state.address} floatingLabelText="Address" floatingLabelFixed={true} onChange={this.handleChange} />
                     </div>
                     <div>
                         <RaisedButton type="submit" label="Save" primary={true} style={style} />

@@ -13,7 +13,7 @@ const SignUp = (props)=> {
 	return (
 		<div align="center">
 		<Card>
-			<CardTitle title="Welcome to Medman" />
+			<CardTitle title="Sign up to start using Medman" />
 			<Link to = "/" >Already signed up? Login here</Link>
 			<form name="/auth/signup" onSubmit={props.handleSubmit}>
 				<div>

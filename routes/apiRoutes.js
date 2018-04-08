@@ -4,11 +4,16 @@ module.exports = function (passport) {
 	const familyMemberController = require("../controllers/familyMemberController.js");
 
 	//add any API routes here
-	router.post("/", familyMemberController.create);
-	router.get("/", familyMemberController.findAll);
-	router.get("/:id", familyMemberController.findOne);
-	router.delete("/:id", familyMemberController.delete);
-	router.put("/:id", familyMemberController.update);
+	router
+		.route("/")
+		.get(familyMemberController.findAll)
+		.post(familyMemberController.create);
+	
+	router
+		.route("/:id")
+		.get(familyMemberController.findOne)
+		.put(familyMemberController.update)
+		.delete(familyMemberController.delete);
 
 	return router;
 };

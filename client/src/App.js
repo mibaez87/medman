@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import API from "../src/utils/API.js"
 
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -84,6 +85,11 @@ class App extends Component {
     })
   };
 
+  addFamily = (firstName, lastName, dob, address) => {
+    API.saveNewFamily(firstName, lastName, dob, address)
+      .then()
+  }
+
   render() {
     const loggedIn = this.state.auth.isAuthenticated;
     return (
@@ -124,7 +130,7 @@ class App extends Component {
             }} />
             <Route exact path="/addfamily" render={() => {
               if (loggedIn) {
-                return <NewFamily />
+                return <NewFamily add={this.addFamily}/>
               } else {
                 return <Redirect to="/" />
               }

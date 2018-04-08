@@ -1,19 +1,19 @@
 var db = require("../models");
 
 module.exports = {
-    // Create a new family member
-    create: function (req, res) {
-        db.FamilyMember
-            .create(req.body)
-            .then(function (dbFamilyMember) {
-                res.json(dbFamilyMember);
-            });
-    },
     // Find all family members, sort them by last name, send them back to the user
     findAll: function (req, res) {
         db.FamilyMember
             .find(req.query)
             .sort({ lastName: -1 })
+            .then(function (dbFamilyMember) {
+                res.json(dbFamilyMember);
+            });
+    },
+    // Create a new family member
+    create: function (req, res) {
+        db.FamilyMember
+            .create(req.body)
             .then(function (dbFamilyMember) {
                 res.json(dbFamilyMember);
             });
@@ -26,6 +26,12 @@ module.exports = {
                 res.json(dbFamilyMember);
             });
     },
+    // Update the specified family member
+    update: function (req, res) {
+        db.FamilyMember.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(function (dbFamilyMember) {
+            res.json(dbFamilyMember);
+        });
+    },
     // Delete a family member with a given id
     delete: function (req, res) {
         db.FamilyMember
@@ -33,11 +39,5 @@ module.exports = {
             .then(function (dbFamilyMember) {
                 res.json(dbFamilyMember);
             });
-    },
-    // Update the specified family member
-    update: function (req, res) {
-        db.FamilyMember.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(function (dbFamilyMember) {
-            res.json(dbFamilyMember);
-        });
     }
 };
