@@ -22,7 +22,7 @@ class NewFamily extends Component {
         event.preventDefault();
         const {firstName, lastName, dob, address} = this.state;
         const formattedBirthDate = moment(dob).format('YYYYMMDD');
-        this.props.add(firstName, lastName, formattedBirthDate, address);
+        this.props.addFamily(firstName, lastName, formattedBirthDate, address);
     }
 
     handleChange = (event) => {

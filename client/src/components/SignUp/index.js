@@ -14,7 +14,7 @@ const SignUp = (props)=> {
 		<div align="center">
 		<Card>
 			<CardTitle title="Sign up to start using Medman" />
-			<Link to = "/" >Already signed up? Login here</Link>
+			<Link to = "/" >Already signed up? Go to Login</Link>
 			<form name="/auth/signup" onSubmit={props.handleSubmit}>
 				<div>
 					<TextField floatingLabelText="Email" floatingLabelFixed={true} type="email" name="username" value={props.username} className="user" onChange={props.handleChange} />
