@@ -85,11 +85,6 @@ class App extends Component {
     })
   };
 
-  addFamily = (firstName, lastName, dob, address) => {
-    API.saveNewFamily(firstName, lastName, dob, address)
-      .then()
-  }
-
   render() {
     const loggedIn = this.state.auth.isAuthenticated;
     return (
