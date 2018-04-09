@@ -10,7 +10,7 @@ class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		axios.get("/api")
+		axios.get("/api/family")
 			.then((response)=>{
 				console.log(response.data);
 				this.setState({
