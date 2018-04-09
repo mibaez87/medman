@@ -3,12 +3,13 @@ import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import API from "../src/utils/API.js"
+// import API from "../src/utils/API.js"
 
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import NewFamily from "./components/NewFamily/NewFamily.js"
+import FamilyHome from './components/FamilyHome/FamilyHome';
 
 
 class App extends Component {
@@ -47,7 +48,7 @@ class App extends Component {
   handleSubmit = (event) => {
     // console.log(event.target);
     event.preventDefault();
-    
+
     //call a sign In function
     const newUser = {
       username: this.state.username,
@@ -120,12 +121,12 @@ class App extends Component {
               if (loggedIn) {
                 // return <Redirect to="/family" />
               } else {
-                return <Home handleLogout={this.handleLogout}/>
+                return <Home handleLogout={this.handleLogout} />
               }
             }} />
             <Route exact path="/addfamily" render={() => {
               if (loggedIn) {
-                return <NewFamily add={this.addFamily}/>
+                return <NewFamily add={this.addFamily} />
               } else {
                 return <Redirect to="/" />
               }

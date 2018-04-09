@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import axios from 'axios';
+// import moment from 'moment';
+// import axios from 'axios';
 import { Card, CardTitle } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 import ToolBar from '../ToolBar/ToolBar.js'
 import API from "../../utils/API.js"
+import FamilyHome from '../FamilyHome/FamilyHome.js';
 
 const style = {
     margin: 12,
@@ -14,19 +15,10 @@ const style = {
 
 class NewFamily extends Component {
     state = {
-        familyMembers: [],
         firstName: "",
         lastName: "",
         dob: {},
         address: ""
-    }
-
-    showFamily = () => {
-        API.getHousehold()
-        .then(res =>
-          this.setState({ familyMembers: res.data, firstName: "", lastName: "", dob: {}, address: "" })
-        )
-        .catch(err => console.log(err));
     }
 
     handleSubmit = event => {
@@ -37,8 +29,8 @@ class NewFamily extends Component {
             dob: this.state.dob,
             address: this.state.address
         })
-            .then(res => this.showFamily())
-            .catch(err => console.log(err));
+            // .then(res => this.showFamily())
+            // .catch(err => console.log(err));
     }
 
     handleChange = (event) => {
