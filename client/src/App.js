@@ -9,7 +9,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import NewFamily from "./components/NewFamily/NewFamily.js"
-import FamilyHome from './components/FamilyHome/FamilyHome';
+// import FamilyHome from './components/FamilyHome/FamilyHome';
 
 
 class App extends Component {
