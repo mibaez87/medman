@@ -30,10 +30,10 @@ const MedicineSchema = new Schema({
         trim: true,
         required: true
     },
-    _pharmacyId: {
-        type: Schema.Types.ObjectId,
-        ref: "Pharmacy"
-    },
+    // _pharmacyId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Pharmacy"
+    // },
     lastPickup: {
         type: Date,
         default: Date.now,
