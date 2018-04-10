@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { Card, CardTitle } from 'material-ui/Card';
 
-<div align="center">
-    <Card>
-        <CardTitle title="FirstName LastName" />
-        <div>
-            <p>Date of Birth: </p>
-            <p>Address: </p>
+const FamilyMemberCard = (props) => {
+    return (
+        <div align="center">
+            <Card>
+                {props.familyMembers.map((familyMember, index) => (
+                    <CardTitle title="FirstName LastName" />
+                    <div>
+                        <p>Date of Birth: {familyMember.dob}</p>
+                        <br/>
+                        <p>Address: {familyMember.address}</p>
+                    </div>
+                ))}
+            </Card>
         </div>
-    </Card>
-</div>
+    )
+}
+
+export default FamilyMemberCard;
