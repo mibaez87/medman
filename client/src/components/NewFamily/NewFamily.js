@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Card, CardTitle } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 import ToolBar from '../ToolBar/ToolBar.js'
 import API from '../../utils/API.js'
-// import FamilyHome from '../FamilyHome/FamilyHome.js'
 
 const style = {
     margin: 12,
@@ -26,6 +26,8 @@ class NewFamily extends Component {
             lastName: this.state.lastName,
             dob: this.state.dob,
             address: this.state.address
+        }).then(()=>{
+            return <Redirect to="/home" />
         });
     }
 

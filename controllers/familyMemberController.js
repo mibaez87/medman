@@ -5,7 +5,7 @@ module.exports = {
     findAll: function (req, res) {
         db.FamilyMember
             .find(req.query)
-            .sort({ lastName: -1 })
+            .sort({ firstName: +1 })
             .then(function (dbFamilyMember) {
                 res.json(dbFamilyMember);
             });

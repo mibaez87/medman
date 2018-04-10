@@ -7,7 +7,7 @@ const MedicineSchema = new Schema({
         ref: "FamilyMember",
         required: true
     },
-    name: {
+    medicineName: {
         type: String,
         trim: true,
         required: true
