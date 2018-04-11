@@ -16,7 +16,8 @@ class NewFamily extends Component {
         firstName: "",
         lastName: "",
         dob: {},
-        address: ""
+        address: "",
+        saved: false
     }
 
     handleSubmit = event => {
@@ -26,8 +27,8 @@ class NewFamily extends Component {
             lastName: this.state.lastName,
             dob: this.state.dob,
             address: this.state.address
-        }).then(()=>{
-            return <Redirect to="/home" />
+        }).then(() => {
+            this.setState({ saved: true })
         });
     }
 
@@ -41,28 +42,33 @@ class NewFamily extends Component {
     }
 
     render() {
-        return (
-            <div align="center">
-                <ToolBar />
-                <Card>
-                    <CardTitle title="Add a New Family Member" />
-                    <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
-                        <div>
-                            <TextField name="firstName" value={this.state.firstName} floatingLabelText="First Name" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <TextField name="lastName" value={this.state.lastName} floatingLabelText="Last Name" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <DatePicker name="dob" value={this.state.dob} floatingLabelText="Date of Birth" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleBirthDateChange} />
-                            <br />
-                            <TextField name="address" value={this.state.address} floatingLabelText="Address" floatingLabelFixed={true} onChange={this.handleChange} />
-                        </div>
-                        <div>
-                            <RaisedButton type="submit" label="Save" primary={true} style={style} />
-                        </div>
-                    </form>
-                </Card>
-            </div>
-        );
+        const isSaved = this.state.saved;
+        if (isSaved) {
+            return <Redirect to="/home" />
+        } else {
+            return (
+                <div align="center">
+                    <ToolBar />
+                    <Card>
+                        <CardTitle title="Add a New Family Member" />
+                        <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
+                            <div>
+                                <TextField name="firstName" value={this.state.firstName} floatingLabelText="First Name" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <TextField name="lastName" value={this.state.lastName} floatingLabelText="Last Name" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <DatePicker name="dob" value={this.state.dob} floatingLabelText="Date of Birth" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleBirthDateChange} />
+                                <br />
+                                <TextField name="address" value={this.state.address} floatingLabelText="Address" floatingLabelFixed={true} onChange={this.handleChange} />
+                            </div>
+                            <div>
+                                <RaisedButton type="submit" label="Save" primary={true} style={style} />
+                            </div>
+                        </form>
+                    </Card>
+                </div>
+            );
+        }
     }
 }
 

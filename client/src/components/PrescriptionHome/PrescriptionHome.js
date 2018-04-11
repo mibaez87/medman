@@ -5,15 +5,15 @@ import FamilyMemberCard from '../FamilyMemberCard/FamilyMemberCard.js'
 
 class PrescriptionHome extends React.Component {
 	state = {
-		prescriptions:[]
+		familyMembers:[]
 	}
 
 	componentDidMount(){
-		axios.get("/api/prescriptions")
+		axios.get("/api/family/:id")
 			.then((response)=>{
 				console.log(response.data);
 				this.setState({
-					prescriptions: response.data
+					familyMembers: response.data
 				});
 			})
 			.catch((err)=>{
@@ -25,10 +25,10 @@ class PrescriptionHome extends React.Component {
 		return (
 			<div>
 				<ToolBar />
-				<FamilyMemberCard prescriptions={this.state.prescriptions}/>
+				<FamilyMemberCard familyMembers={this.state.familyMembers}/>
 			</div>
 		)
 	}
 }
 
-export default Home;
+export default PrescriptionHome;

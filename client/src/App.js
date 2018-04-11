@@ -8,7 +8,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-import NewFamily from "./components/NewFamily/NewFamily.js"
+import NewFamily from "./components/NewFamily/NewFamily.js";
+import PrescriptionHome from "./components/PrescriptionHome/PrescriptionHome.js";
 // import FamilyHome from './components/FamilyHome/FamilyHome';
 
 
@@ -127,6 +128,13 @@ class App extends Component {
             <Route exact path="/addfamily" render={() => {
               if (loggedIn) {
                 return <NewFamily add={this.addFamily} />
+              } else {
+                return <Redirect to="/" />
+              }
+            }} />
+            <Route exact path="/family/:id" render={() => {
+              if (loggedIn) {
+                return <PrescriptionHome />
               } else {
                 return <Redirect to="/" />
               }

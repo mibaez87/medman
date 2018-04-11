@@ -7,6 +7,6 @@ export default {
   },
   // Saves a medicine to the db
   saveNewMed: function (newMedData) {
-    return axios.post("api/prescriptions", newMedData);
+    return axios.post("api/family/:id", newMedData);
   }
 };
