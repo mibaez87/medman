@@ -28,7 +28,7 @@ const FamilyHome = (props) => {
                     style={styles.gridList}
                 >
                     {props.familyMembers.map((familyMember,index) => (
-                        <Link to={`/family/${familyMember._id}`} >
+                        <Link to={"/family/" + familyMember._id} >
                         <GridTile
                             key={familyMember._id}
                             title={familyMember.firstName}

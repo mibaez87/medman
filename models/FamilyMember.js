@@ -19,7 +19,8 @@ const MemberSchema = new Schema({
     address: {
         type: String,
         required: true
-    }
+    },
+    prescriptions: []
 });
 
 const FamilyMember = mongoose.model('FamilyMember', MemberSchema);
