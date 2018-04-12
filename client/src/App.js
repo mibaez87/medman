@@ -10,7 +10,7 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import NewFamily from "./components/NewFamily/NewFamily.js";
 import PrescriptionHome from "./components/PrescriptionHome/PrescriptionHome.js";
-// import FamilyHome from './components/FamilyHome/FamilyHome';
+import NewPrescription from './components/NewPrescription/NewPrescription.js';
 
 
 class App extends Component {
@@ -135,6 +135,13 @@ class App extends Component {
             <Route exact path="/family/:id" render={(props) => {
               if (loggedIn) {
                 return <PrescriptionHome {...props} />
+              } else {
+                return <Redirect to="/" />
+              }
+            }} />
+            <Route exact path="/addprescription" render={() => {
+              if (loggedIn) {
+                return <NewPrescription add={this.addPrescription} />
               } else {
                 return <Redirect to="/" />
               }
