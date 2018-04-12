@@ -19,12 +19,11 @@ module.exports = {
             });
     },
     // Find one family member
-    findOne: function (req, res) {
+    findById: function (req, res) {
         db.FamilyMember
-            .findOne(req.query)
-            .then(function (dbFamilyMember) {
-                res.json(dbFamilyMember);
-            });
+            .findById(req.params.id)
+            .then(dbFamilyMember => res.json(dbFamilyMember))
+            .catch(err => res.status(422).json(err));
     },
     // Update the specified family member
     update: function (req, res) {

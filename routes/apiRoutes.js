@@ -9,15 +9,16 @@ module.exports = function (passport) {
 		.route("/family")
 		.post(familyMemberController.create)
 		.get(familyMemberController.findAll);
-;
 	
 	router
 		.route("/family/:id")
-		.post(prescriptionController.create)
-		.get(familyMemberController.findOne)
+		.get(familyMemberController.findById)
 		.put(familyMemberController.update)
 		.delete(familyMemberController.delete);
 
+	router
+		.route("/family/:id/prescriptions")
+		.post(prescriptionController.create);
 
 	return router;
 };
