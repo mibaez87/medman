@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import "./style.css";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -30,9 +30,9 @@ class ToolBar extends Component {
               </IconButton>
             }
           >
-            <MenuItem value={1} primaryText="Household Members" />
-            <MenuItem value={2} primaryText="Prescriptions" />
-            <MenuItem value={3} primaryText="Pharmacies" />
+            <Link to='/home'><MenuItem value={1} primaryText="Home" /></Link>
+            {/* <MenuItem value={2} primaryText="Prescriptions" />
+            <MenuItem value={3} primaryText="Pharmacies" /> */}
           </IconMenu>
         </ToolbarGroup>
         <ToolbarGroup>

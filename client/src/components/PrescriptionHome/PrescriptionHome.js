@@ -1,7 +1,8 @@
 import React from 'react';
-import API from '../../utils/API.js'
+import API from '../../utils/API.js';
 import ToolBar from '../ToolBar/ToolBar.js';
-import FamilyMemberCard from '../FamilyMemberCard/FamilyMemberCard.js'
+import FamilyMemberCard from '../FamilyMemberCard/FamilyMemberCard.js';
+import PrescriptionTable from '../PrescriptionTable/PrescriptionTable.js'
 
 class PrescriptionHome extends React.Component {
 	state = {
@@ -19,6 +20,7 @@ class PrescriptionHome extends React.Component {
 			<div>
 				<ToolBar />
 				<FamilyMemberCard familyMember={this.state.familyMember} />
+				<PrescriptionTable />
 			</div>
 		);
 	}

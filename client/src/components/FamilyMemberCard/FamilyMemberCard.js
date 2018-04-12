@@ -8,13 +8,9 @@ const FamilyMemberCard = (props) => {
     return (
         <div align="center">
             <Card>
-                <CardTitle title={props.familyMember.firstName + "'s Profile & Prescriptions"} />
-                <p><strong>Full Name:</strong> {props.familyMember.firstName} {props.familyMember.lastName}
-                    <br />
-                    <strong>Date of Birth:</strong> {bDate}
-                    <br />
-                    <strong>Address:</strong> {props.familyMember.address}
-                </p>
+                <strong><CardTitle title={props.familyMember.firstName + ' ' + props.familyMember.lastName} /></strong>
+                <p>Date of Birth: {bDate} </p>
+                <p>Address: {props.familyMember.address}</p>
                 <br />
             </Card>
         </div>
