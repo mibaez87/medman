@@ -132,9 +132,9 @@ class App extends Component {
                 return <Redirect to="/" />
               }
             }} />
-            <Route exact path="/family/:id" render={() => {
+            <Route exact path="/family/:id" render={(props) => {
               if (loggedIn) {
-                return <PrescriptionHome />
+                return <PrescriptionHome {...props} />
               } else {
                 return <Redirect to="/" />
               }
