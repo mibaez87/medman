@@ -12,13 +12,11 @@ module.exports = function (passport) {
 	
 	router
 		.route("/family/:id")
-		.get(familyMemberController.findById)
-		.put(familyMemberController.update)
-		.delete(familyMemberController.delete);
+		.get(familyMemberController.findById);
 
 	router
 		.route("/family/:id/prescriptions")
-		.post(prescriptionController.create);
+		.put(prescriptionController.update);
 
 	return router;
 };

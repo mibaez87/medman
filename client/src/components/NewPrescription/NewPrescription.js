@@ -21,7 +21,8 @@ class NewPrescription extends Component {
         frequency: "",
         lastPickUp: {},
         refill: false,
-        nextRefill: {}
+        nextRefill: {},
+        saved: false
     }
 
     handleSubmit = event => {
@@ -36,7 +37,7 @@ class NewPrescription extends Component {
             refill: this.state.refill,
             nextRefill: this.state.nextRefill
         }).then(() => {
-            return <Redirect to="/family/:id" />
+            this.setState({ saved: true })
         });
     }
 
@@ -54,36 +55,41 @@ class NewPrescription extends Component {
     }
 
     render() {
-        return (
-            <div align="center">
-                <ToolBar />
-                <Card>
-                    <CardTitle title="Add a New Prescription" />
-                    <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
-                        <div>
-                            <TextField name="medicineName" value={this.state.medicineName} floatingLabelText="Prescription Name" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <TextField name="dose" value={this.state.dose} floatingLabelText="Dose" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <TextField name="usedFor" value={this.state.usedFor} floatingLabelText="Used For" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <TextField name="quantity" value={this.state.quantity} floatingLabelText="Quantity" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <TextField name="frequency" value={this.state.frequency} floatingLabelText="Frequency" floatingLabelFixed={true} onChange={this.handleChange} />
-                            <br />
-                            <DatePicker name="lastPickup" value={this.state.lastPickup} floatingLabelText="Last Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleLastPickupChange} />
-                            <br />
-                            <RefillCheckbox name="refill" value={this.state.refill} onCheck={this.handleChange} />
-                            <br />
-                            <DatePicker name="nextRefill" value={this.state.nextRefill} floatingLabelText="Next Refill Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleNextRefillChange} />
-                        </div>
-                        <div>
-                            <RaisedButton type="submit" label="Save" primary={true} style={style} />
-                        </div>
-                    </form>
-                </Card>
-            </div>
-        );
+        const isSaved = this.state.saved;
+        if (isSaved) {
+            return <Redirect to="/family/:id" />
+        } else {
+            return (
+                <div align="center">
+                    <ToolBar />
+                    <Card>
+                        <CardTitle title="Add a New Prescription" />
+                        <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
+                            <div>
+                                <TextField name="medicineName" value={this.state.medicineName} floatingLabelText="Prescription Name" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <TextField name="dose" value={this.state.dose} floatingLabelText="Dose" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <TextField name="usedFor" value={this.state.usedFor} floatingLabelText="Used For" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <TextField name="quantity" value={this.state.quantity} floatingLabelText="Quantity" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <TextField name="frequency" value={this.state.frequency} floatingLabelText="Frequency" floatingLabelFixed={true} onChange={this.handleChange} />
+                                <br />
+                                <DatePicker name="lastPickup" value={this.state.lastPickup} floatingLabelText="Last Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleLastPickupChange} />
+                                <br />
+                                <RefillCheckbox name="refill" value={this.state.refill} onCheck={this.handleChange} />
+                                <br />
+                                <DatePicker name="nextRefill" value={this.state.nextRefill} floatingLabelText="Next Refill Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleNextRefillChange} />
+                            </div>
+                            <div>
+                                <RaisedButton type="submit" label="Save" primary={true} style={style} />
+                            </div>
+                        </form>
+                    </Card>
+                </div>
+            );
+        }
     }
 }
 
