@@ -2,5 +2,6 @@
 
 module.exports = {
 	User: require("./User.js"),
-	FamilyMember: require("./FamilyMember.js")
+	FamilyMember: require("./FamilyMember.js"),
+	Prescription: require("./Prescription.js")
 };
