@@ -23,6 +23,6 @@ const MemberSchema = new Schema({
     prescriptions: [{ type: Schema.ObjectId, ref: "Prescription" }]
 });
 
-const FamilyMember = mongoose.model('FamilyMember', MemberSchema);
+const FamilyMember = mongoose.model("FamilyMember", MemberSchema);
 
 module.exports = FamilyMember;
