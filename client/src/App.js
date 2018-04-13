@@ -118,30 +118,23 @@ class App extends Component {
                 />
               }
             }} />
-            <Route exact path="/family" render={() => {
-              if (loggedIn) {
-                // return <Redirect to="/family" />
-              } else {
-                return <Home handleLogout={this.handleLogout} />
-              }
-            }} />
             <Route exact path="/addfamily" render={() => {
               if (loggedIn) {
-                return <NewFamily add={this.addFamily} />
+                return <NewFamily add={this.addFamily} auth={this.state.auth} />
               } else {
                 return <Redirect to="/" />
               }
             }} />
             <Route exact path="/family/:id" render={(props) => {
               if (loggedIn) {
-                return <PrescriptionHome {...props} />
+                return <PrescriptionHome {...props} auth={this.state.auth} />
               } else {
                 return <Redirect to="/" />
               }
             }} />
-            <Route exact path="/addprescription" render={() => {
+            <Route exact path="/addprescription/:id" render={(props) => {
               if (loggedIn) {
-                return <NewPrescription add={this.addPrescription} />
+                return <NewPrescription {...props} add={this.addPrescription} auth={this.state.auth} />
               } else {
                 return <Redirect to="/" />
               }

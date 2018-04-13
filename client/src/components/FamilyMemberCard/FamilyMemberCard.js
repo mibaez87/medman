@@ -16,7 +16,7 @@ const FamilyMemberCard = (props) => {
                 <p>Address: {props.familyMember.address}</p>
                 <br />
                 <br />
-                <h2>Prescriptions {<IconButton><Link to ="/addprescription"><AddCircle /></Link></IconButton>}</h2>
+                <h2>Prescriptions {<IconButton><Link to ={"/addprescription/" + props.familyMember._id} ><AddCircle /></Link></IconButton>}</h2>
             </Card>
         </div>
     )

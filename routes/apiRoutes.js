@@ -15,8 +15,8 @@ module.exports = function (passport) {
 		.get(familyMemberController.findById);
 
 	router
-		.route("/family/:id/prescriptions")
-		.put(prescriptionController.update);
+		.route("/family/prescriptions/:id")
+		.post(prescriptionController.create);
 
 	return router;
 };

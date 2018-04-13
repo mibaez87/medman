@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const MedicineSchema = new Schema({
+    _familyMemberId: {
+        type: Schema.Types.ObjectId,
+        ref: "FamilyMember"
+    },
     medicineName: {
         type: String,
         trim: true,

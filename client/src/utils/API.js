@@ -10,7 +10,7 @@ export default {
     return axios.get("/api/family/" + id);
   },
   // Saves a medicine to the db
-  saveNewMed: function (newMedData) {
-    return axios.put("api/family/:id/prescriptions", newMedData);
+  saveNewMed: function (userId,newMedData) {
+    return axios.post("api/family/prescriptions/"+userId, newMedData);
   }
 };

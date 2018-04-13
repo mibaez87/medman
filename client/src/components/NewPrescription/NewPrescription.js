@@ -27,7 +27,7 @@ class NewPrescription extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        API.saveNewMed({
+        API.saveNewMed(this.props.match.params.id, {
             medicineName: this.state.medicineName,
             dose: this.state.dob,
             usedFor: this.state.usedFor,
@@ -38,7 +38,7 @@ class NewPrescription extends Component {
             nextRefill: this.state.nextRefill
         }).then(() => {
             this.setState({ saved: true })
-        });
+        }).catch(err => console.log(err));
     }
 
     handleChange = (event) => {

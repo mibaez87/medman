@@ -20,7 +20,7 @@ const MemberSchema = new Schema({
         type: String,
         required: true
     },
-    prescriptions: []
+    prescriptions: [{ type: Schema.ObjectId, ref: "Prescription" }]
 });
 
 const FamilyMember = mongoose.model('FamilyMember', MemberSchema);
