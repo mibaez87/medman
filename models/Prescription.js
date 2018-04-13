@@ -35,14 +35,13 @@ const MedicineSchema = new Schema({
         required: true
     },
     refill: {
-        type: Boolean,
-        required: true
+        type: Boolean
     },
     nextRefill: {
         type: Date,
     }
 });
 
-const Prescription = mongoose.model('Prescription', MedicineSchema);
+const Prescription = mongoose.model("Prescription", MedicineSchema);
 
 module.exports = Prescription;

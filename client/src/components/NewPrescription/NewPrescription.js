@@ -46,6 +46,12 @@ class NewPrescription extends Component {
         this.setState({ [name]: value });
     }
 
+    handleCheckChange = () => {
+        if (this.state.checked) {
+            this.setState({ refill: true })
+        }
+    }
+
     handleLastPickupChange = (event, date) => {
         this.setState({ lastPickup: date });
     }
@@ -78,7 +84,7 @@ class NewPrescription extends Component {
                                 <br />
                                 <DatePicker name="lastPickup" value={this.state.lastPickup} floatingLabelText="Last Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleLastPickupChange} />
                                 <br />
-                                <RefillCheckbox name="refill" value={this.state.refill} onCheck={this.handleChange} />
+                                <RefillCheckbox name="refill" value={this.state.checked} onChange={this.handleCheckChange} />
                                 <br />
                                 <DatePicker name="nextRefill" value={this.state.nextRefill} floatingLabelText="Next Refill Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleNextRefillChange} />
                             </div>

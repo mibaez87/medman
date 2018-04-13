@@ -30,13 +30,5 @@ module.exports = {
         db.FamilyMember.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(function (dbFamilyMember) {
             res.json(dbFamilyMember);
         });
-    },
-    // Delete a family member with a given id
-    delete: function (req, res) {
-        db.FamilyMember
-            .remove({ _id: req.params.id })
-            .then(function (dbFamilyMember) {
-                res.json(dbFamilyMember);
-            });
     }
 };

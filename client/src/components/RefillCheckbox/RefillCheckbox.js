@@ -15,11 +15,21 @@ const styles = {
     state = {
       checked: false,
     }
-  
+    
+    updateCheck() {
+      this.setState((oldState) => {
+        return {
+          checked: !oldState.checked,
+        };
+      });
+    }
+    
     render() {
       return (
         <div style={styles.block}>
           <Checkbox
+            checked={this.state.checked}
+            onCheck={this.updateCheck.bind(this)}
             checkedIcon={<ActionRenew />}
             label="Refill(s) Available"
             style={styles.checkbox}
