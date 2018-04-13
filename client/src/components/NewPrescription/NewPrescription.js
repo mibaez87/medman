@@ -14,6 +14,7 @@ const style = {
 
 class NewPrescription extends Component {
     state = {
+        _familyMemberId: "",
         medicineName: "",
         dose: "",
         usedFor: "",
@@ -28,6 +29,7 @@ class NewPrescription extends Component {
     handleSubmit = event => {
         event.preventDefault();
         API.saveNewMed(this.props.match.params.id, {
+            _familyMemberId: this.props.match.params.id,
             medicineName: this.state.medicineName,
             dose: this.state.dob,
             usedFor: this.state.usedFor,

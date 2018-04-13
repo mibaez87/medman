@@ -5,7 +5,8 @@ const MemberSchema = new Schema({
     firstName: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        unique: { index: { unique: true }}
     },
     lastName: {
         type: String,
