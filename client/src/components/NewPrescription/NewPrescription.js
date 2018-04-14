@@ -3,13 +3,24 @@ import { Redirect } from 'react-router-dom';
 import { Card, CardTitle } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
-import RefillCheckbox from '../RefillCheckbox/RefillCheckbox.js'
+import Checkbox from 'material-ui/Checkbox';
+import ActionRenew from 'material-ui/svg-icons/action/autorenew';
+// import RefillCheckbox from '../RefillCheckbox/RefillCheckbox.js'
 import RaisedButton from 'material-ui/RaisedButton';
-import ToolBar from '../ToolBar/ToolBar.js'
-import API from '../../utils/API.js'
+import ToolBar from '../ToolBar/ToolBar.js';
+import API from '../../utils/API.js';
 
 const style = {
     margin: 12,
+};
+
+const styles = {
+    block: {
+        maxWidth: 250,
+    },
+    checkbox: {
+        marginBottom: 16,
+    },
 };
 
 class NewPrescription extends Component {
@@ -48,18 +59,20 @@ class NewPrescription extends Component {
         this.setState({ [name]: value });
     }
 
-    handleCheckChange = () => {
-        if (this.state.checked) {
-            this.setState({ refill: true })
-        }
-    }
-
     handleLastPickupChange = (event, date) => {
         this.setState({ lastPickup: date });
     }
 
     handleNextRefillChange = (event, date) => {
         this.setState({ nextRefill: date });
+    }
+
+    updateCheck() {
+        this.setState((oldState) => {
+            return {
+                checked: !oldState.checked,
+            };
+        });
     }
 
     render() {
@@ -73,7 +86,7 @@ class NewPrescription extends Component {
                     <Card>
                         <CardTitle title="Add a New Prescription" />
                         <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >
-                            <div>
+                            <div style={styles.block}> 
                                 <TextField name="medicineName" value={this.state.medicineName} floatingLabelText="Prescription Name" floatingLabelFixed={true} onChange={this.handleChange} />
                                 <br />
                                 <TextField name="dose" value={this.state.dose} floatingLabelText="Dose" floatingLabelFixed={true} onChange={this.handleChange} />
@@ -86,7 +99,7 @@ class NewPrescription extends Component {
                                 <br />
                                 <DatePicker name="lastPickup" value={this.state.lastPickup} floatingLabelText="Last Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleLastPickupChange} />
                                 <br />
-                                <RefillCheckbox name="refill" value={this.state.checked} onChange={this.handleCheckChange} />
+                                <Checkbox name="refill" label="Refill(s) Available" checked={this.state.checked} onCheck={this.updateCheck.bind(this)} checkedIcon={<ActionRenew />} style={styles.checkbox} />
                                 <br />
                                 <DatePicker name="nextRefill" value={this.state.nextRefill} floatingLabelText="Next Refill Pickup Date" floatingLabelFixed={true} openToYearSelection={true} onChange={this.handleNextRefillChange} />
                             </div>
