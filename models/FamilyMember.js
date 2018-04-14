@@ -2,11 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const MemberSchema = new Schema({
+    familyMemberId: {
+        type: mongoose.Schema.Types.ObjectId
+    },
     firstName: {
         type: String,
         trim: true,
-        required: true,
-        unique: { index: { unique: true }}
+        required: true
     },
     lastName: {
         type: String,
@@ -21,7 +23,7 @@ const MemberSchema = new Schema({
         type: String,
         required: true
     },
-    prescriptions: [{ type: Schema.ObjectId, ref: "Prescription" }]
+    prescriptions: [{ type: Schema.Types.ObjectId, ref: "Prescription" }]
 });
 
 const FamilyMember = mongoose.model("FamilyMember", MemberSchema);
