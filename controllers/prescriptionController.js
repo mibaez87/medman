@@ -11,7 +11,7 @@ module.exports = {
     // Find one prescription
     findById: function (req, res) {
         db.Prescription
-            .findById(req.params.id)
+            .find({"_familyMemberId": req.params.id})
             .then(dbPrescription => res.json(dbPrescription))
             .catch(err => res.status(422).json(err));
     }
