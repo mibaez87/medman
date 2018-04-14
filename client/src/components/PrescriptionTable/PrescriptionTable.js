@@ -45,12 +45,8 @@ export default class PrescriptionTable extends Component {
     enableSelectAll: false,
     deselectOnClickaway: true,
     showCheckboxes: false,
-    height: '300px',
+    height: '300px'
   };
-
-  componentDidMount(){
-    
-  }
 
   handleChange = (event) => {
     this.setState({height: event.target.value});
