@@ -65,7 +65,7 @@ class NewPrescription extends Component {
     render() {
         const isSaved = this.state.saved;
         if (isSaved) {
-            return <Redirect to="/family/:id" />
+            return <Redirect to={"/family/" + this.props.match.params.id} />
         } else {
             return (
                 <div align="center">
