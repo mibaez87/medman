@@ -20,7 +20,7 @@ class NewPrescription extends Component {
         usedFor: "",
         quantity: 0,
         frequency: "",
-        lastPickUp: {},
+        lastPickup: {},
         refill: false,
         nextRefill: {},
         saved: false
@@ -31,11 +31,11 @@ class NewPrescription extends Component {
         API.saveNewMed(this.props.match.params.id, {
             _familyMemberId: this.props.match.params.id,
             medicineName: this.state.medicineName,
-            dose: this.state.dob,
+            dose: this.state.dose,
             usedFor: this.state.usedFor,
             quantity: this.state.quantity,
             frequency: this.state.frequency,
-            lastPickUp: this.state.lastPickUp,
+            lastPickup: this.state.lastPickup,
             refill: this.state.refill,
             nextRefill: this.state.nextRefill
         }).then(() => {

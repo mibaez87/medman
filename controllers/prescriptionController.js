@@ -3,6 +3,7 @@ var db = require("../models");
 module.exports = {
     // Create a new prescription
     create: function (req, res) {
+        console.log(req.body);
         db.Prescription
             .create(req.body)
             .then(dbPrescription => res.json(dbPrescription))

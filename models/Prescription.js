@@ -31,7 +31,6 @@ const MedicineSchema = new Schema({
     },
     lastPickup: {
         type: Date,
-        default: Date.now,
         required: true
     },
     refill: {
