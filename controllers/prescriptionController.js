@@ -10,9 +10,8 @@ module.exports = {
     },
     // Find one prescription
     findById: function (req, res) {
-        console.log(req);
         db.Prescription
-            .findById(req.param.id)
+            .findById(req.params.id)
             .then(dbPrescription => res.json(dbPrescription))
             .catch(err => res.status(422).json(err));
     }

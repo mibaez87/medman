@@ -48,6 +48,10 @@ export default class PrescriptionTable extends Component {
     height: '300px',
   };
 
+  componentDidMount(){
+    
+  }
+
   handleChange = (event) => {
     this.setState({height: event.target.value});
   };
