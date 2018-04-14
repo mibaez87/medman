@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const MedicineSchema = new Schema({
     _familyMemberId: {
         type: Schema.Types.ObjectId,
-        ref: "FamilyMember",
-        required: true
+        ref: "FamilyMember"
     },
     medicineName: {
         type: String,
