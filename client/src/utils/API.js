@@ -12,5 +12,9 @@ export default {
   // Saves a medicine to the db
   saveNewMed: function (familyMemberId, newMedData) {
     return axios.post("/api/family/prescriptions/" + familyMemberId, newMedData);
+  },
+  // Gets meds for a specific family member
+  getMemberMeds: function (familyMemberId){
+    return axios.get("/api/family/prescriptions/" + familyMemberId);
   }
 };
