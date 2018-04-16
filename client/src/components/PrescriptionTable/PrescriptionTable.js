@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import moment from 'moment';
 import {
   Table,
   TableBody,
@@ -8,9 +9,6 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-/**
- * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
- */
 export default class PrescriptionTable extends Component {
   state = {
     fixedHeader: true,
@@ -30,6 +28,8 @@ export default class PrescriptionTable extends Component {
   };
 
   render() {
+    // const lastPickupDate = this.props.prescriptions.lastPickup,
+    //   lpDate = moment(lastPickupDate).format('MMMM DD YYYY');
     return (
       <div>
         <Table

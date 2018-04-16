@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import API from "../src/utils/API.js"
 
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -95,7 +94,7 @@ class App extends Component {
           <div>
             <Route exact path="/" render={() => {
               if (loggedIn) {
-                return <Redirect to="/home" />
+                return <Redirect to="/home" auth={this.state.auth} />
               } else {
                 return <SignIn
                   handleChange={this.handleChange}
@@ -108,7 +107,7 @@ class App extends Component {
             {/* <Route exact path="/saved" render={()=> <SavedArticles />} */}
             <Route exact path="/signup" render={() => {
               if (loggedIn) {
-                return <Redirect to="/home" />
+                return <Redirect to="/home" auth={this.state.auth} />
               } else {
                 return <SignUp
                   handleChange={this.handleChange}
