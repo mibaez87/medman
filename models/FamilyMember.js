@@ -22,8 +22,7 @@ const MemberSchema = new Schema({
     address: {
         type: String,
         required: true
-    },
-    prescriptions: [{ type: Schema.Types.ObjectId, ref: "Prescription" }]
+    }
 });
 
 const FamilyMember = mongoose.model("FamilyMember", MemberSchema);

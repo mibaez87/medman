@@ -22,7 +22,7 @@ class PrescriptionHome extends React.Component {
 	render() {
 		return (
 			<div>
-				<ToolBar />
+				<ToolBar handleLogout={this.props.handleLogout} />
 				<FamilyMemberCard familyMember={this.state.familyMember} />
 				<PrescriptionTable prescriptions={this.state.prescriptions} />
 			</div>

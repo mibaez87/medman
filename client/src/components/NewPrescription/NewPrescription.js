@@ -82,7 +82,7 @@ class NewPrescription extends Component {
         } else {
             return (
                 <div align="center">
-                    <ToolBar />
+                    <ToolBar handleLogout={this.props.handleLogout} />
                     <Card>
                         <CardTitle title="Add a New Prescription" />
                         <form onSubmit={(event) => this.handleSubmit(event, this.props, this.state)} >

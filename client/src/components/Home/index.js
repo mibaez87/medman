@@ -25,7 +25,7 @@ class Home extends React.Component {
 	render(){
 		return (
 			<div>
-				<ToolBar />
+				<ToolBar handleLogout={this.props.handleLogout}/>
 				<FamilyHome familyMembers={this.state.familyMembers}/>
 			</div>
 		)
