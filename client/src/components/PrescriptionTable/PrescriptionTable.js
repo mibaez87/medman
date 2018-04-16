@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import moment from 'moment';
+import moment from 'moment';
 import {
   Table,
   TableBody,
@@ -28,8 +28,6 @@ export default class PrescriptionTable extends Component {
   };
 
   render() {
-    // const lastPickupDate = this.props.prescriptions.lastPickup,
-    //   lpDate = moment(lastPickupDate).format('MMMM DD YYYY');
     return (
       <div>
         <Table
@@ -62,15 +60,15 @@ export default class PrescriptionTable extends Component {
             stripedRows={this.state.stripedRows}
           >
             {this.props.prescriptions.map((row, index) => (
-              <TableRow key={index}>
+              < TableRow key={index} >
                 <TableRowColumn>{row.medicineName}</TableRowColumn>
                 <TableRowColumn>{row.dose}</TableRowColumn>
                 <TableRowColumn>{row.usedFor}</TableRowColumn>
                 <TableRowColumn>{row.quantity}</TableRowColumn>
                 <TableRowColumn>{row.frequency}</TableRowColumn>
-                <TableRowColumn>{row.lastPickup}</TableRowColumn>
+                <TableRowColumn>{moment(new Date(row.lastPickup)).format('dddd[,] MM[/]DD[/]YY')}</TableRowColumn>
                 <TableRowColumn>{row.refill}</TableRowColumn>
-                <TableRowColumn>{row.nextRefill}</TableRowColumn>
+                <TableRowColumn>{moment(new Date(row.nextRefill)).format('dddd[,] MM[/]DD[/]YY')}</TableRowColumn>
               </TableRow>
             ))}
           </TableBody>

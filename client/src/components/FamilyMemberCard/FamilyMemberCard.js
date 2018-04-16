@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const FamilyMemberCard = (props) => {
     const birthDate = props.familyMember.dob,
-        bDate = moment(new Date(birthDate)).format('MMMM DD YYYY');
+        bDate = moment(new Date(birthDate)).format('MMMM D[,] YYYY');
     return (
         <div align="center">
             <Card>
