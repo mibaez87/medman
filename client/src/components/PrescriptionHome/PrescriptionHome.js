@@ -7,15 +7,16 @@ import PrescriptionTable from '../PrescriptionTable/PrescriptionTable.js'
 class PrescriptionHome extends React.Component {
 	state = {
 		familyMember: {},
-		// prescriptions:[]
+		prescriptions: []
 	};
 
 	componentDidMount() {
 		API.findOneMember(this.props.match.params.id)
 			.then(res => this.setState({ familyMember: res.data }))
 			.catch(err => console.log(err));
-		// API.getMemberMeds(this.props.match.params.id)
-		// 	.then(res => console.log("ME", res))
+		API.getMemberMeds(this.props.match.params.id)
+			.then(res => this.setState({ prescriptions: res.data }))
+			.catch(err => console.log(err));
 	}
 
 	render() {
@@ -23,7 +24,7 @@ class PrescriptionHome extends React.Component {
 			<div>
 				<ToolBar />
 				<FamilyMemberCard familyMember={this.state.familyMember} />
-				<PrescriptionTable />
+				<PrescriptionTable prescriptions={this.state.prescriptions} />
 			</div>
 		);
 	}
