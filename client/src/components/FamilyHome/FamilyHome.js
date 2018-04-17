@@ -31,7 +31,7 @@ const FamilyHome = (props) => {
                         <GridTile
                             key={familyMember._id}
                             title={familyMember.firstName}
-                            subtitle={<span>Next Refill: <b>{familyMember.nextRefill}</b></span>}
+                            subtitle={<span>Next Refill: 05/15/2018</span>}
                         >
                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt={familyMember.firstName} />
                         </GridTile>
